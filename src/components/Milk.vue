@@ -1,6 +1,6 @@
 <template>
 
-  <div class="layout-padding docs-input row justify-center">
+  <div class="layout-padding row justify-center">
     <div style="width: 500px; max-width: 90vw;">
       <h4>奶</h4>
       <q-datetime v-model="datetime1" type="datetime" placeholder="时间" />
@@ -87,7 +87,7 @@
           html: '提交成功，1秒返回！',
           timeout: 1000,
           onDismiss: () => {
-            this.$router.replace('/index')
+            this.$router.replace('/')
           }
         })
       }

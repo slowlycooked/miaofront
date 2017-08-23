@@ -65,7 +65,7 @@
         axios({
           method: 'post',
           url: BACKEND_IP + '/api/records',
-          data: {recordDate1: this.datetime1, type: '油', amount: this.amount, notes: this.notes}
+          data: {recordDate1: this.datetime1, type: '维生素', amount: this.amount, notes: this.notes}
         }).then(function (response) {
           console.log(response.status)
           if (response.status === 200) {
@@ -87,7 +87,7 @@
           html: '提交成功，1秒返回！',
           timeout: 1000,
           onDismiss: () => {
-            this.$router.replace('/index')
+            this.$router.replace('/')
           }
         })
       }

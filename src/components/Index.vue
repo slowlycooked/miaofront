@@ -15,7 +15,7 @@
             </q-item-tile>
             <q-item-tile v-if="record.type !=='睡觉'" label>{{record.type}} : {{record.amount}}
               <span v-if="record.type === '牛奶'" >毫升</span>
-              <span v-if="record.type === '油'" >滴</span>
+              <span v-if="record.type === '维生素'" >滴</span>
             </q-item-tile>
             <q-item-tile label>备注：{{record.notes}}</q-item-tile>
           </q-item-main>
@@ -71,10 +71,7 @@
     },
     data () {
       return {
-        records: [],
-        date: null,
-        type: '',
-        amount: 0
+        records: []
       }
     },
 

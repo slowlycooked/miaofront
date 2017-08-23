@@ -1,29 +1,25 @@
 <template>
 
   <div class="layout-padding docs-input row justify-center">
+    <div class="row">
+      <h4>当日总结</h4>
+    </div>
+
+    <br/>
+    <br/>
     <table class="q-table">
       <thead>
       <tr>
-        <th class="text-left">Name</th>
-        <th class="text-right">Price</th>
-        <th class="text-right">In Stock</th>
+        <th class="text-left">项目</th>
+        <th class="text-right">量</th>
+        <th class="text-right">备注</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr v-for="sum in sums" :key="sum.type">
         <td class="text-left">Item #1</td>
         <td class="text-right">$10.11</td>
         <td class="text-right">101</td>
-      </tr>
-      <tr>
-        <td class="text-left">Item #2</td>
-        <td class="text-right">$8.88</td>
-        <td class="text-right">34</td>
-      </tr>
-      <tr>
-        <td class="text-left">Item #3</td>
-        <td class="text-right">$0.15</td>
-        <td class="text-right">1670</td>
       </tr>
       </tbody>
     </table>
@@ -54,7 +50,6 @@
   } from 'quasar'
 
   export default {
-    name: 'milk',
     components: {
       QBtn,
       QDatetime,
@@ -74,41 +69,18 @@
     },
     data () {
       return {
-        datetime1: new Date(),
-        notes: '',
-        amount: null
+        sums: []
       }
     },
+    mounted () {
+      this.fetchData()
+    },
+
     methods: {
-      saveMilk () {
-        axios({
-          method: 'post',
-          url: BACKEND_IP + '/api/records',
-          data: {recordDate1: this.datetime1, type: '牛奶', amount: this.amount, notes: this.notes}
-        }).then(function (response) {
-          console.log(response.status)
-          if (response.status === 200) {
-            this.toastWithOnDismiss()
-          }
-          else {
-            this.toastFailed()
-          }
+      fetchData () {
+        axios.get(BACKEND_IP + '/api/records/sum').then(function (response) {
+          this.records = response.data
         }.bind(this))
-      },
-      toastFailed () {
-        Toast.create['negative']({
-          html: '提交失败',
-          timeout: 1000
-        })
-      },
-      toastWithOnDismiss () {
-        Toast.create['positive']({
-          html: '提交成功，1秒返回！',
-          timeout: 1000,
-          onDismiss: () => {
-            this.$router.replace('/index')
-          }
-        })
       }
     }
   }
