@@ -12,17 +12,22 @@
         苗苗成长日记
         <span slot="subtitle">开心每一天</span>
       </q-toolbar-title>
-      <q-btn class="within-iframe-hide" flat @click="$router.replace('/index')" style="margin-right: 15px">
+      <q-btn class="within-iframe-hide" flat @click="$router.replace('/')" style="margin-right: 15px">
         <q-icon name="home" />
       </q-btn>
     </q-toolbar>
 
     <q-scroll-area slot="left" style="width: 100%; height: 100%">
       <q-list-header>菜单</q-list-header>
-      <q-side-link item to="/Index">
+      <q-side-link item to="/Sum">
+        <q-item-side icon="beenhere" />
+        <q-item-main label="当日总结" />
+      </q-side-link>
+      <q-side-link item to="/">
         <q-item-side icon="list" />
         <q-item-main label="当日明细" />
       </q-side-link>
+
       <q-item-separator />
 
       <q-side-link item to="/Milk">

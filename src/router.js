@@ -27,10 +27,11 @@ export default new VueRouter({
       path: '/',
       component: load('Layout'),
       children: [
+        {path: '/', component: load('Index')},
+        {path: 'Sum', component: load('Sum')},
         {path: 'Sleep', component: load('Sleep')},
         {path: 'Oil', component: load('Oil')},
-        {path: 'Milk', component: load('Milk')},
-        {path: 'Index', component: load('Index')}
+        {path: 'Milk', component: load('Milk')}
       ]
     },
     // Always leave this last one
