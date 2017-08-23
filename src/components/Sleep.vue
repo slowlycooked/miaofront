@@ -87,7 +87,7 @@
           html: '提交成功，1秒返回！',
           timeout: 1000,
           onDismiss: () => {
-            this.$router.replace('/index')
+            this.$router.replace('/')
           }
         })
       }
