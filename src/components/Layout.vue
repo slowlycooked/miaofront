@@ -27,7 +27,15 @@
 
       <q-side-link item to="/Milk">
         <q-item-side icon="child care" />
-        <q-item-main label="牛奶" sublabel="记录吃奶情况" />
+        <q-item-main label="奶" sublabel="记录吃奶情况" />
+      </q-side-link>
+      <q-side-link item to="/Oil">
+        <q-item-side icon="wb_incandescent" />
+        <q-item-main label="维生素" sublabel="记录吃维生素情况" />
+      </q-side-link>
+      <q-side-link item to="/Sleep">
+        <q-item-side icon="brightness_2" />
+        <q-item-main label="睡觉" sublabel="记录睡觉情况" />
       </q-side-link>
     </q-scroll-area>
 

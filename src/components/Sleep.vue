@@ -2,13 +2,13 @@
 
   <div class="layout-padding docs-input row justify-center">
     <div style="width: 500px; max-width: 90vw;">
-      <h4>奶</h4>
-      <q-datetime v-model="datetime1" type="datetime" placeholder="时间" />
-      <q-input v-model="amount" type="number" placeholder="奶量" suffix="毫升" />
+      <h4>睡觉</h4>
+      <q-datetime v-model="datetime1" type="datetime" placeholder="开始时间" />
+      <q-datetime v-model="datetime2" type="datetime" placeholder="结束时间" />
       <q-input v-model="notes" placeholder="备注" />
-      <q-btn  color="primary" @click="saveMilk" name="submit">保存</q-btn>
+      <q-btn  color="primary" @click="saveOil" name="submit">保存</q-btn>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -56,16 +56,16 @@
     data () {
       return {
         datetime1: new Date(),
-        notes: '',
-        amount: null
+        datetime2: new Date(),
+        notes: ''
       }
     },
     methods: {
-      saveMilk () {
+      saveOil () {
         axios({
           method: 'post',
           url: BACKEND_IP + '/api/records',
-          data: {recordDate1: this.datetime1, type: '牛奶', amount: this.amount, notes: this.notes}
+          data: {recordDate1: this.datetime1, recordDate2: this.datetime2, type: '睡觉', notes: this.notes}
         }).then(function (response) {
           console.log(response.status)
           if (response.status === 200) {

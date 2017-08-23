@@ -27,6 +27,8 @@ export default new VueRouter({
       path: '/',
       component: load('Layout'),
       children: [
+        {path: 'Sleep', component: load('Sleep')},
+        {path: 'Oil', component: load('Oil')},
         {path: 'Milk', component: load('Milk')},
         {path: 'Index', component: load('Index')}
       ]

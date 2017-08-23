@@ -5,9 +5,17 @@
         <q-list-header>日志</q-list-header>
         <q-item v-for="record in records" :key="record.id">
           <q-item-main>
-            <q-item-tile label>{{frontEndDateFormat(record.recordDate)}}</q-item-tile>
-            <q-item-tile label>{{record.type}} : {{record.amount}}
+            <q-item-tile label>
+              <span v-if="record.type ==='睡觉'">睡觉开始:</span>
+              {{frontEndDateFormat(record.recordDate1)}}
+            </q-item-tile>
+            <q-item-tile v-if="record.type ==='睡觉'" label>
+              <span v-if="record.type ==='睡觉'">睡觉结束:</span>
+                {{frontEndDateFormat(record.recordDate2)}}
+            </q-item-tile>
+            <q-item-tile v-if="record.type !=='睡觉'" label>{{record.type}} : {{record.amount}}
               <span v-if="record.type === '牛奶'" >毫升</span>
+              <span v-if="record.type === '油'" >滴</span>
             </q-item-tile>
             <q-item-tile label>备注：{{record.notes}}</q-item-tile>
           </q-item-main>

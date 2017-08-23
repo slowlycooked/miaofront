@@ -14,6 +14,10 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
 
+// import VueI18n from 'vue-i18n'
+// Vue.use(VueI18n)
+// Vue.config.lang = 'zh' // or whatever language
+
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
 
