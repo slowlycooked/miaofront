@@ -20,7 +20,7 @@ var serveStatic = require('serve-static');
 app = express();
 app.use(serveStatic(__dirname));
 
-var port = 3000
+var port = 5000
 app.use('/api', ifiportProxy);
 app.listen(port);
 console.log('server started '+ port);
