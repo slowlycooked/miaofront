@@ -31,9 +31,6 @@
   import axios from 'axios'
   import moment from 'moment'
 
-  const
-    BACKEND_IP = 'http://localhost:8080'
-
   import {
     QDatetime,
     QInput,
@@ -83,7 +80,7 @@
     methods: {
       fetchData () {
         console.log(moment(this.dt).format('YYYY-MM-DD'))
-        axios.get(BACKEND_IP + '/api/records/sum?from=' + moment(this.dt).format('YYYY-MM-DD')).then(function (response) {
+        axios.get('/api/records/sum?from=' + moment(this.dt).format('YYYY-MM-DD')).then(function (response) {
           this.sums = response.data
           console.log(this.sums)
         }.bind(this))

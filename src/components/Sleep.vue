@@ -13,8 +13,6 @@
 
 <script>
   import axios from 'axios'
-  const
-    BACKEND_IP = 'http://localhost:8080'
 
   import {
     QDatetime,
@@ -64,7 +62,7 @@
       saveOil () {
         axios({
           method: 'post',
-          url: BACKEND_IP + '/api/records',
+          url: '/api/records',
           data: {recordDate1: this.datetime1, recordDate2: this.datetime2, type: '睡觉', notes: this.notes}
         }).then(function (response) {
           console.log(response.status)

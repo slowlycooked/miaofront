@@ -36,9 +36,6 @@
   import axios from 'axios'
   import moment from 'moment'
 
-  const
-    BACKEND_IP = 'http://localhost:8080'
-
   import {
     QLayout,
     QToolbar,
@@ -85,7 +82,7 @@
     methods: {
 
       fetchRecords () {
-        axios.get(BACKEND_IP + '/api/records/date?from=' + moment(this.dt).format('YYYY-MM-DD')).then(function (response) {
+        axios.get('/api/records/date?from=' + moment(this.dt).format('YYYY-MM-DD')).then(function (response) {
           this.records = response.data
         }.bind(this))
       },
@@ -107,7 +104,7 @@
               label: '确认',
               handler: () => {
                 console.log('确认...')
-                axios.get(BACKEND_IP + '/api/records/del/' + id).then(function (response) {
+                axios.get('/api/records/del/' + id).then(function (response) {
                   if (response.status === 200) {
                     Toast.create['positive']({
                       html: '删除成功！',
