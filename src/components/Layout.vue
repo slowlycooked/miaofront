@@ -64,7 +64,8 @@
     QSideLink,
     QListHeader,
     QScrollArea,
-    QItemSeparator
+    QItemSeparator,
+    QDatetime
   } from 'quasar'
 
   export default {
@@ -82,11 +83,19 @@
       QSideLink,
       QListHeader,
       QScrollArea,
-      QItemSeparator
+      QItemSeparator,
+      QDatetime
     },
     data () {
       return {
+        dt: new Date()
       }
     }
   }
 </script>
+
+<style>
+  .body{
+    font-size: x-large
+  }
+</style>

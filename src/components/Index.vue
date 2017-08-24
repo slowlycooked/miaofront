@@ -1,6 +1,10 @@
 <template>
 
     <div>
+      <div class="row">
+          <q-datetime id="dt" v-model="dt"  float-label="日期" style="font-size: x-large; margin-left: 5%"
+                      @change="fetchRecords()" />
+      </div>
       <q-list no-border separator>
         <q-list-header>日志</q-list-header>
         <q-item v-for="record in records" :key="record.id">
@@ -49,7 +53,8 @@
     QItemTile,
     QItemSeparator,
     Dialog,
-    Toast
+    Toast,
+    QDatetime
   } from 'quasar'
 
   export default {
@@ -67,18 +72,20 @@
       QItemMain,
       QItemTile,
       QItemSeparator,
-      Toast
+      Toast,
+      QDatetime
     },
     data () {
       return {
-        records: []
+        records: [],
+        dt: new Date()
       }
     },
 
     methods: {
 
       fetchRecords () {
-        axios.get(BACKEND_IP + '/api/records').then(function (response) {
+        axios.get(BACKEND_IP + '/api/records/date?from=' + moment(this.dt).format('YYYY-MM-DD')).then(function (response) {
           this.records = response.data
         }.bind(this))
       },
@@ -122,4 +129,5 @@
     }
   }
 </script>
+
 
